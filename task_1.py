@@ -35,17 +35,17 @@
 from datetime import datetime
 
 def get_days_from_today(date:str)->int:
-	try:
 	
+	try:
 		date = datetime.strptime(date, '%Y-%m-%d')
 		current_date = datetime.today()
-		print(current_date)
-		return (current_date-date).days
+		differece_in_days = (current_date-date).days
+		return differece_in_days
 	except Exception as e:
    		raise RuntimeError(f"Unexpected error: {e}")
 	
  
 	
 
-print(get_days_from_today("2025-03-07")) 
+print(get_days_from_today("2025-03-10")) 
 
