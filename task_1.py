@@ -30,3 +30,22 @@
 
 Якщо сьогодні 5 травня 2021 року, виклик get_days_from_today("2021-10-09") повинен повернути −157, оскільки 9 жовтня 2021 року є на 157 днів пізніше від 5 травня 2021 року.
 """
+
+
+from datetime import datetime
+
+def get_days_from_today(date:str)->int:
+	try:
+	
+		date = datetime.strptime(date, '%Y-%m-%d')
+		current_date = datetime.today()
+		print(current_date)
+		return (current_date-date).days
+	except Exception as e:
+   		raise RuntimeError(f"Unexpected error: {e}")
+	
+ 
+	
+
+print(get_days_from_today("2025-03-07")) 
+
