@@ -46,7 +46,10 @@ def get_numbers_ticket(min:int, max:int, quantity:int)->list:
 	if min < 1 or max > 1000 or quantity < min or quantity > max:
 		return []
 	else: 
-		return sorted(random.sample(range(min,max), quantity)) 
+		some_nums = range(min, max)
+		list_of_random_numbers = random.sample(some_nums, quantity)
+		sorted_list = sorted(list_of_random_numbers)
+		return sorted_list 
 		
 		
 print(get_numbers_ticket(1, 49, 6))
