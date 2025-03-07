@@ -101,6 +101,18 @@ print("Нормалізовані номери телефонів для SMS-р�
 
 
 
+def get_upcoming_birthdays(users) -> list: 
+    current_date = datetime.today().date()
+    bd_list = []
+    for user in users:
+        bd_date_user = datetime.strptime(user.get("birthday"), "%Y.%m.%d").date()
+        if current_date.month == bd_date_user.month:
+            if (current_date.day == bd_date_user.day):  # Якщо сьогодні день народження  20 -10
+                bd_list.append({"name": user.get("name"), "congratulation_date": current_date.strftime("%Y.%m.%d")})
+            elif current_date.day < bd_date_user.day:
+                if bd_date_user.day - current_date.day <= 7:
+                    bd_list.append({"name": user.get("name"), "congratulation_date": bd_date_user.strftime("%Y.%m.%d")})
 
+    return bd_list
 
 

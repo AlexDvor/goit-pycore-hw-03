@@ -37,8 +37,8 @@ from datetime import datetime
 def get_days_from_today(date:str)->int:
 	
 	try:
-		date = datetime.strptime(date, '%Y-%m-%d')
-		current_date = datetime.today()
+		date = datetime.strptime(date, '%Y-%m-%d').date()
+		current_date = datetime.today().date()
 		differece_in_days = (current_date-date).days
 		return differece_in_days
 	except Exception as e:
