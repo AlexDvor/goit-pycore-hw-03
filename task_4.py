@@ -15,21 +15,17 @@ def get_bd_list(users) -> list:
     for user in users:
         bd_date_user = datetime.strptime(user["birthday"], "%Y.%m.%d").date()
     
-        # Створюємо дату дня народження в поточному році
         birthday_this_year = bd_date_user.replace(year=current_date.year)
        
-        # Якщо день народження вже минув у цьому році, переносимо його на наступний рік
         if birthday_this_year < current_date:
             birthday_this_year = bd_date_user.replace(year=current_date.year + 1)
 
-        # Перевіряємо, чи день народження потрапляє в наступні 7 днів
         if 0 <= (birthday_this_year - current_date).days <= 7:
             congratulation_date = birthday_this_year
 
-            # Якщо день народження припадає на вихідний (субота або неділя)
-            if congratulation_date.weekday() == 5:  # Субота
+            if congratulation_date.weekday() == 5: 
                 congratulation_date += timedelta(days=2)
-            elif congratulation_date.weekday() == 6:  # Неділя
+            elif congratulation_date.weekday() == 6:  
                 congratulation_date += timedelta(days=1)
 
          
@@ -40,6 +36,15 @@ def get_bd_list(users) -> list:
 
     return bd_list
 print(get_bd_list(users_of_company))
+
+
+#TASK:
+
+# Створюємо дату дня народження в поточному році
+# Якщо день народження вже минув у цьому році, переносимо його на наступний рік
+# Перевіряємо, чи день народження потрапляє в наступні 7 днів
+# Якщо день народження припадає на вихідний (субота або неділя)
+        
 
 
 """
