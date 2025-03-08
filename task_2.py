@@ -2,7 +2,7 @@ import random
 
 def get_numbers_ticket(min:int, max:int, quantity:int)->list:
 
-	if min < 1 or max > 1000 or quantity < min or quantity > max:
+	if min < 1 or max > 1000 or quantity < 1 or quantity >(max - min):
 		return []
 	else: 
 		some_nums = range(min, max)
@@ -12,6 +12,7 @@ def get_numbers_ticket(min:int, max:int, quantity:int)->list:
 		
 		
 print(get_numbers_ticket(1, 49, 6))
+print(get_numbers_ticket(10, 12, 11))
 
 
 
